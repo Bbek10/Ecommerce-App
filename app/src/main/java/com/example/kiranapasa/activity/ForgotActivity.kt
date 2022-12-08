@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kiranapasa.MainActivity
+import com.example.kiranapasa.databinding.ActivityForgotBinding
 import com.example.kiranapasa.databinding.ActivityLoginBinding
 import com.example.kiranapasa.databinding.ActivityRegisterBinding
 import com.google.firebase.FirebaseException
@@ -15,42 +16,36 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
 
-class LoginActivity : AppCompatActivity() {
+class ForgotActivity : AppCompatActivity() {
+
     private lateinit var builder : AlertDialog
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityForgotBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding =  ActivityLoginBinding.inflate(layoutInflater)
-
-        binding.textView15.setOnClickListener{
-            startActivity(Intent(this, ForgotActivity::class.java))
-            finish()
-        }
+        binding =  ActivityForgotBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        //to go to Register Activity from Login Activity
-        binding.button4.setOnClickListener{
-            startActivity(Intent(this,RegisterActivity::class.java))
-            finish()
-        }
+
+
+
 
         //login button
         binding.button3.setOnClickListener{
-            if(binding.userNumber.text!!.isEmpty()  || binding.email.text!!.isEmpty() || binding.password.text!!.isEmpty())
+            if(binding.userNumber.text!!.isEmpty())
                 Toast.makeText(this, "Please Provide All Details", Toast.LENGTH_SHORT).show()
             else
-                    sendOtp(binding.userNumber.text.toString())
+                sendOtp(binding.userNumber.text.toString())
 
 
         }
 
-        }
+    }
 
 
     private fun sendOtp(number: String) {
-         builder = AlertDialog.Builder(this).setTitle("Loading....")
+        builder = AlertDialog.Builder(this).setTitle("Loading....")
             .setMessage("Please Wait")
             .setCancelable(false)
             .create()
@@ -80,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
             verificationId:String,
             token:PhoneAuthProvider.ForceResendingToken){
             builder.dismiss()
-                val intent = Intent(this@LoginActivity, OTPActivity::class.java)
+            val intent = Intent(this@ForgotActivity, OTPActivity::class.java)
             intent.putExtra("verificationId",verificationId)
             intent.putExtra("number", binding.userNumber.text.toString())
             startActivity(intent)
@@ -88,3 +83,12 @@ class LoginActivity : AppCompatActivity() {
 
     }
 }
+
+
+
+
+
+
+
+
+

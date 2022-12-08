@@ -35,20 +35,6 @@ RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
         holder.binding.textView12.text = list[position].productName
         holder.binding.textView13.text = list[position].productSp
-//        holder.binding.textView19.text = list[position].stock
-
-        //self
-
-//
-//        Firebase.firestore.collection("products")
-//            .document().get().addOnSuccessListener {
-//                var stock = it.getString("stock")
-//                holder.binding.textView19.text = stock
-//            }
-
-
-
-
 
 
                 //to go to Product Details from Cart
@@ -118,8 +104,6 @@ RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
 
                 }
-
-
 
     }
     override fun getItemCount(): Int {

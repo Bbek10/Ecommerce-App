@@ -33,6 +33,7 @@ class ProductAdapter(private val context : Context, private val list: ArrayList<
         //stock exp
         holder.binding.stock.text = "Stock :"+data.stock
         holder.binding.button.text = data.productSp
+        holder.binding.button2.text = "Buy Now"
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java )

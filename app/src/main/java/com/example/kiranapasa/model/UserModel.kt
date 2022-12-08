@@ -7,5 +7,9 @@ data class UserModel(
     val state :String?="",
     val city :String?="",
     val pinCode :String?="",
+    val email : String?="",
+    val pass : String?="",
+    val fullName: String? = "",
+    val gender : String? =""
 
     )

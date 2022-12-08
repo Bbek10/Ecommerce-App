@@ -79,8 +79,6 @@ class CartFragment : Fragment() {
             total += item.productSp!!.toInt()
         }
 
-
-
         //TOTAL
 
         binding.textView12.text = "Total item in cart is ${data.size}"

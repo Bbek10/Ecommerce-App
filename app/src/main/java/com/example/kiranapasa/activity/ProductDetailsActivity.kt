@@ -45,7 +45,7 @@ class ProductDetailsActivity: AppCompatActivity(){
 
 
                 binding.textView8.text = name
-                binding.textView7.text = productSp
+                binding.textView7.text = "£$productSp"
                 binding.textView.text = productDesc
                 binding.textView9.text = stock
 

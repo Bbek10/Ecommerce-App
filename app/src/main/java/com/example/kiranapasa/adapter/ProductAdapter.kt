@@ -29,10 +29,10 @@ class ProductAdapter(private val context : Context, private val list: ArrayList<
 
         holder.binding.textView2.text = data.productName
         holder.binding.textView4.text = data.productCategory
-        holder.binding.textView3.text = data.productMrp
+        holder.binding.textView3.text = "£" + data.productMrp
         //stock exp
         holder.binding.stock.text = "Stock :"+data.stock
-        holder.binding.button.text = data.productSp
+        holder.binding.button.text = "£" + data.productSp
         holder.binding.button2.text = "Buy Now"
 
         holder.itemView.setOnClickListener {
